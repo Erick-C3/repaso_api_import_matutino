@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "api_import",
   "version": "1.0.0",
   "description": "",
