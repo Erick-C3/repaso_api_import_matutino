@@ -9,7 +9,14 @@ app.get("/inicio",(req, res)=>{
 });
 
 app.get("/platos",async (req, res)=>{
-    const [resConsulta] = await conexionDB.query("SELECT * FROM platos;");
+    const [resConsulta] = await conexionDB.query("SELECT * FROM platos");
+    res.json(resConsulta);
+});
+
+app.get("/platos/:id",async (req, res)=>{
+    const idPlato = req.params.id;
+    console.log(req.params);
+    const [resConsulta] = await conexionDB.query("SELECT * FROM platos WHERE id_plato = ?;",[idPlato]);
     res.json(resConsulta);
 });
 
